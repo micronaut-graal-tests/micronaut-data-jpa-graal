@@ -19,7 +19,9 @@ version "0.1"
 group "example.jpa"
 
 repositories {
-    maven { url "https://jcenter.bintray.com" }
+    jcenter()
+    mavenCentral()
+    maven { url "https://oss.jfrog.org/oss-snapshot-local" }
 }
 
 configurations {
