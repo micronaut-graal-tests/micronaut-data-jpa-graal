@@ -1,6 +1,6 @@
 # Micronaut Data JPA Graal #
 
-**The master branch is not used anymore. Checkout branches for each specific database: `h2`**
+Test application for Micronaut Data JPA and GraalVM that uses H2.
 
 To test the application:
 
