@@ -17,12 +17,13 @@ import java.util.Arrays;
 
 @Singleton
 @TypeHint(typeNames = {
-    "example.domain.Pet$PetType",
-    "org.h2.Driver",     
-    "org.h2.mvstore.db.MVTableEngine", 
-    "org.hibernate.dialect.H2Dialect"
+        "example.domain.Pet$PetType",
+        "org.h2.Driver",
+        "org.h2.mvstore.db.MVTableEngine",
+        "org.hibernate.dialect.H2Dialect",
+        "com.zaxxer.hikari.util.ConcurrentBag$IConcurrentBagEntry[]"
 },
-accessType = TypeHint.AccessType.ALL_PUBLIC)
+        accessType = TypeHint.AccessType.ALL_PUBLIC)
 public class Application {
     private static final Logger LOG = LoggerFactory.getLogger(Application.class);
 
