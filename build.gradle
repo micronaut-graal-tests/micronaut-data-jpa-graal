@@ -82,6 +82,7 @@ hibernate {
         enableLazyInitialization= true
         enableDirtyTracking = true
         enableAssociationManagement = true
+        enableExtendedEnhancement = true
     }
 }
 
