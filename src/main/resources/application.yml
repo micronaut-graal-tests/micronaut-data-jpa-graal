@@ -1,6 +1,6 @@
 micronaut:
   application:
-    name: example-jdbc
+    name: example-jpa
 jackson:
   bean-introspection-module: true
 ---
@@ -20,4 +20,3 @@ jpa:
           provider: none
         hbm2ddl:
           auto: update
-
