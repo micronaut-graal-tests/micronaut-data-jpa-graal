@@ -49,8 +49,8 @@ dependencies {
         exclude group:'io.micronaut.configuration', module:'micronaut-hibernate-jpa-spring'
     }
     runtime "ch.qos.logback:logback-classic:1.2.3"
-    runtime "com.h2database:h2"
     runtime "io.micronaut.configuration:micronaut-jdbc-hikari"
+    runtime "org.postgresql:postgresql:42.2.8"
 
     runtimeOnly "ch.qos.logback:logback-classic:1.2.3"
     testAnnotationProcessor platform("io.micronaut:micronaut-bom:$micronautVersion")
