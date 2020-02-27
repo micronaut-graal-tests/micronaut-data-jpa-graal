@@ -17,10 +17,9 @@ import java.util.Arrays;
 
 @Singleton
 @TypeHint(typeNames = {
-        "example.domain.Pet$PetType",
-        "org.h2.Driver",
-        "org.h2.mvstore.db.MVTableEngine",
-        "org.hibernate.dialect.H2Dialect",
+        "org.mariadb.jdbc.util.Options",
+        "org.mariadb.jdbc.Driver",
+        "org.hibernate.dialect.MariaDB103Dialect",
         "com.zaxxer.hikari.util.ConcurrentBag$IConcurrentBagEntry[]"
 },
         accessType = TypeHint.AccessType.ALL_PUBLIC)
