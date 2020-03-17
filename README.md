@@ -1,6 +1,11 @@
 # Micronaut Data JPA Graal #
 
-**The master branch is not used anymore. Checkout branches for each specific database: `h2`**
+Test application for Micronaut Data JPA and GraalVM that uses Postgres.
+
+To run Postgres in Docker:
+```
+docker run -it --rm -p 5432:5432 -e POSTGRES_PASSWORD=secret -e POSTGRES_DB=pets postgres:11.5-alpine
+```
 
 To test the application:
 
