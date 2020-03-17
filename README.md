@@ -1,6 +1,11 @@
 # Micronaut Data JPA Graal #
 
-**The master branch is not used anymore. Checkout branches for each specific database: `h2`**
+Test application for Micronaut Data JPA and GraalVM that uses MariaDB.
+
+To run MariaDB in Docker:
+```
+docker run -p 3306:3306 -it --rm -e MYSQL_ROOT_PASSWORD=secret -e MYSQL_DATABASE=pets mariadb:10.4.8-bionic
+```
 
 To test the application:
 
