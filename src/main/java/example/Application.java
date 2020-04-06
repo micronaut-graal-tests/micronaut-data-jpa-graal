@@ -20,7 +20,6 @@ import java.util.Arrays;
         "org.mariadb.jdbc.util.Options",
         "org.mariadb.jdbc.Driver",
         "org.hibernate.dialect.MariaDB103Dialect",
-        "com.zaxxer.hikari.util.ConcurrentBag$IConcurrentBagEntry[]"
 },
         accessType = TypeHint.AccessType.ALL_PUBLIC)
 public class Application {
