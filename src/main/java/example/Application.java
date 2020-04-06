@@ -19,8 +19,8 @@ import java.util.Arrays;
 @TypeHint(
         typeNames = {
                 "org.postgresql.Driver",
-                "org.hibernate.dialect.PostgreSQL95Dialect",
-                "com.zaxxer.hikari.util.ConcurrentBag$IConcurrentBagEntry[]"},
+                "org.hibernate.dialect.PostgreSQL95Dialect"
+        },
         accessType = TypeHint.AccessType.ALL_PUBLIC
 )
 public class Application {
