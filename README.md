@@ -1,6 +1,11 @@
 # Micronaut Data JPA Graal #
 
-**The master branch is not used anymore. Checkout branches for each specific database: `h2`**
+Test application for Micronaut Data JPA and GraalVM that uses Oracle.
+
+To run Oracle in Docker:
+```
+docker run -it --rm -p 1521:1521 wnameless/oracle-xe-11g-r2
+```
 
 To test the application:
 
