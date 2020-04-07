@@ -48,8 +48,9 @@ dependencies {
     implementation "io.micronaut.data:micronaut-data-hibernate-jpa:$micronautDataVersion", {
         exclude group:'io.micronaut.configuration', module:'micronaut-hibernate-jpa-spring'
     }
+    implementation "com.oracle.ojdbc:ojdbc8:19.3.0.0"
+
     runtime "ch.qos.logback:logback-classic:1.2.3"
-    runtime "com.h2database:h2"
     runtime "io.micronaut.configuration:micronaut-jdbc-hikari"
 
     runtimeOnly "ch.qos.logback:logback-classic:1.2.3"
