@@ -26,20 +26,36 @@ repositories {
 
 configurations {
     // for dependencies that are needed for development only
-    developmentOnly 
+    developmentOnly
+
+    all {
+        resolutionStrategy {
+            eachDependency { DependencyResolveDetails details ->
+                // specifying a fixed version for all libraries with 'io.micronaut.data' group
+                if (details.requested.group == 'io.micronaut.data') {
+                    details.useVersion micronautDataVersion
+                }
+                if (details.requested.group.startsWith('io.micronaut') && details.requested.name in ['micronaut-jdbc', 'micronaut-hibernate-jpa']) {
+                    details.useVersion micronautSqlVersion
+                }
+            }
+        }
+    }
 }
 
 dependencies {
     implementation platform("io.micronaut:micronaut-bom:$micronautVersion")     
     annotationProcessor platform("io.micronaut:micronaut-bom:$micronautVersion")
     testAnnotationProcessor platform("io.micronaut:micronaut-bom:$micronautVersion")
+    compileOnly platform("io.micronaut:micronaut-bom:$micronautVersion")
         
     annotationProcessor "io.micronaut:micronaut-inject-java"
     annotationProcessor "io.micronaut:micronaut-graal"
     annotationProcessor "io.micronaut:micronaut-validation"
     annotationProcessor "io.micronaut.data:micronaut-data-processor:$micronautDataVersion"
 
-    compileOnly "com.oracle.substratevm:svm"
+    compileOnly "org.graalvm.nativeimage:svm"
+
     implementation "io.micronaut:micronaut-inject"
     implementation "io.micronaut:micronaut-validation"
     implementation "io.micronaut:micronaut-runtime"
