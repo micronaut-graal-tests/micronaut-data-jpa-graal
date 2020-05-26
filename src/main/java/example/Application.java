@@ -6,7 +6,6 @@ import example.domain.Pet.PetType;
 import example.repositories.OwnerRepository;
 import example.repositories.PetRepository;
 import io.micronaut.context.event.StartupEvent;
-import io.micronaut.core.annotation.TypeHint;
 import io.micronaut.runtime.Micronaut;
 import io.micronaut.runtime.event.annotation.EventListener;
 import org.slf4j.Logger;
@@ -16,13 +15,6 @@ import javax.inject.Singleton;
 import java.util.Arrays;
 
 @Singleton
-@TypeHint(
-        typeNames = {
-                "org.postgresql.Driver",
-                "org.hibernate.dialect.PostgreSQL95Dialect"
-        },
-        accessType = TypeHint.AccessType.ALL_PUBLIC
-)
 public class Application {
     private static final Logger LOG = LoggerFactory.getLogger(Application.class);
 
