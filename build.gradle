@@ -35,6 +35,9 @@ configurations {
                 if (details.requested.group == 'io.micronaut.data') {
                     details.useVersion micronautDataVersion
                 }
+                if (details.requested.group.startsWith('io.micronaut') && details.requested.name in ['micronaut-jdbc', 'micronaut-hibernate-jpa']) {
+                    details.useVersion micronautSqlVersion
+                }
             }
         }
     }
@@ -61,8 +64,8 @@ dependencies {
     implementation "io.micronaut.data:micronaut-data-hibernate-jpa:$micronautDataVersion", {
         exclude group:'io.micronaut.configuration', module:'micronaut-hibernate-jpa-spring'
     }
-    implementation "com.oracle.ojdbc:ojdbc8:19.3.0.0"
 
+    runtime "com.oracle.ojdbc:ojdbc8:19.3.0.0"
     runtime "ch.qos.logback:logback-classic:1.2.3"
     runtime "io.micronaut.configuration:micronaut-jdbc-hikari"
 
