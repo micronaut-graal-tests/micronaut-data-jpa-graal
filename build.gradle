@@ -35,6 +35,9 @@ configurations {
                 if (details.requested.group == 'io.micronaut.data') {
                     details.useVersion micronautDataVersion
                 }
+                if (details.requested.group.startsWith('io.micronaut') && details.requested.name in ['micronaut-jdbc', 'micronaut-hibernate-jpa']) {
+                    details.useVersion '2.2.3' // from BOM
+                }
             }
         }
     }
