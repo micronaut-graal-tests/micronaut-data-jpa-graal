@@ -1,5 +1,7 @@
 package example.domain;
 
+import io.micronaut.core.annotation.Introspected;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -45,9 +47,10 @@ public class Pet {
     }
 
     public void setType(PetType type) {
-		this.type = type;
-	}
+        this.type = type;
+    }
 
+    @Introspected
     public enum PetType {
         DOG,
         CAT
