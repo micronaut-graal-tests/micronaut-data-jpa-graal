@@ -36,7 +36,7 @@ configurations {
                     details.useVersion micronautDataVersion
                 }
                 if (details.requested.group.startsWith('io.micronaut') && details.requested.name in ['micronaut-jdbc', 'micronaut-hibernate-jpa']) {
-                    details.useVersion '2.2.3' // from BOM
+                    details.useVersion '2.2.6.BUILD-SNAPSHOT'
                 }
             }
         }
@@ -65,7 +65,7 @@ dependencies {
     }
     runtime "ch.qos.logback:logback-classic:1.2.3"
     runtime "io.micronaut.configuration:micronaut-jdbc-hikari"
-    runtime "org.postgresql:postgresql:42.2.8"
+    runtime "org.postgresql:postgresql"
 
     runtimeOnly "ch.qos.logback:logback-classic:1.2.3"
     testAnnotationProcessor enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
