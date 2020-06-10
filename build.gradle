@@ -31,12 +31,9 @@ configurations {
     all {
         resolutionStrategy {
             eachDependency { DependencyResolveDetails details ->
-                //specifying a fixed version for all libraries with 'org.gradle' group
+                //specifying a fixed version for all libraries with 'io.micronaut.data' group
                 if (details.requested.group == 'io.micronaut.data') {
                     details.useVersion micronautDataVersion
-                }
-                if (details.requested.group.startsWith('io.micronaut') && details.requested.name in ['micronaut-jdbc', 'micronaut-hibernate-jpa']) {
-                    details.useVersion '2.2.3' // from BOM
                 }
             }
         }
@@ -63,11 +60,12 @@ dependencies {
     implementation "io.micronaut:micronaut-http-server-netty"
     implementation "io.micronaut.data:micronaut-data-hibernate-jpa:$micronautDataVersion", {
         exclude group:'io.micronaut.configuration', module:'micronaut-hibernate-jpa-spring'
+        exclude group: 'io.micronaut', module: 'micronaut-jdbc'
     }
 
     runtime "com.oracle.ojdbc:ojdbc8:19.3.0.0"
     runtime "ch.qos.logback:logback-classic:1.2.3"
-    runtime "io.micronaut.configuration:micronaut-jdbc-hikari"
+    runtime "io.micronaut.sql:micronaut-jdbc-hikari"
 
     runtimeOnly "ch.qos.logback:logback-classic:1.2.3"
     testAnnotationProcessor platform("io.micronaut:micronaut-bom:$micronautVersion")
