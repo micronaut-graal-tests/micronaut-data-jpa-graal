@@ -35,9 +35,6 @@ configurations {
                 if (details.requested.group == 'io.micronaut.data') {
                     details.useVersion micronautDataVersion
                 }
-                if (details.requested.group.startsWith('io.micronaut') && details.requested.name in ['micronaut-jdbc', 'micronaut-hibernate-jpa']) {
-                    details.useVersion '2.2.3' // from BOM
-                }
             }
         }
     }
@@ -63,10 +60,11 @@ dependencies {
     implementation "io.micronaut:micronaut-http-server-netty"
     implementation "io.micronaut.data:micronaut-data-hibernate-jpa:$micronautDataVersion", {
         exclude group:'io.micronaut.configuration', module:'micronaut-hibernate-jpa-spring'
+        exclude group: 'io.micronaut', module: 'micronaut-jdbc'
     }
     runtime "ch.qos.logback:logback-classic:1.2.3"
     runtime 'com.microsoft.sqlserver:mssql-jdbc:7.2.2.jre8'
-    runtime "io.micronaut.configuration:micronaut-jdbc-hikari"
+    runtime "io.micronaut.sql:micronaut-jdbc-hikari"
 
     runtimeOnly "ch.qos.logback:logback-classic:1.2.3"
     testAnnotationProcessor platform("io.micronaut:micronaut-bom:$micronautVersion")
