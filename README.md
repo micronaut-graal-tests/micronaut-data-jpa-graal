@@ -1,6 +1,6 @@
 # Micronaut Data JPA Graal #
 
-:warning: **The master branch is not used anymore.** Checkout branches for each specific database: `h2`, `postgres`, `mariadb`
+:warning: **The master branch is not used anymore.** Checkout branches for each specific database: `h2`, `postgres`, `mariadb` and `mysql`.
 
 To test the application:
 
