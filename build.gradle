@@ -58,10 +58,8 @@ dependencies {
     implementation "io.micronaut:micronaut-runtime"
     implementation "io.micronaut:micronaut-http-client"
     implementation "io.micronaut:micronaut-http-server-netty"
-    implementation "io.micronaut.data:micronaut-data-hibernate-jpa:$micronautDataVersion", {
-        exclude group:'io.micronaut.configuration', module:'micronaut-hibernate-jpa-spring'
-        exclude group: 'io.micronaut', module: 'micronaut-jdbc'
-    }
+    implementation "io.micronaut.data:micronaut-data-hibernate-jpa:$micronautDataVersion"
+
     runtime "ch.qos.logback:logback-classic:1.2.3"
     runtime 'com.microsoft.sqlserver:mssql-jdbc:7.2.2.jre8'
     runtime "io.micronaut.sql:micronaut-jdbc-hikari"
