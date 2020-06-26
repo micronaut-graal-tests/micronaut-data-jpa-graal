@@ -1,0 +1,10 @@
+[
+{
+  "name":"oracle.jdbc.logging.annotations.Supports",
+  "methods":[{"name":"value","parameterTypes":[] }]
+},
+{
+  "name":"oracle.jdbc.logging.annotations.Feature",
+  "methods":[{"name":"values","parameterTypes":[] }]
+}
+]
