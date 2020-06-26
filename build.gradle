@@ -3,13 +3,13 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "org.hibernate:hibernate-gradle-plugin:5.4.3.Final"
+        classpath "org.hibernate:hibernate-gradle-plugin:5.4.17.Final"
     }
 }
 
 plugins {
-    id "net.ltgt.apt-eclipse" version "0.21"
-    id "com.github.johnrengelman.shadow" version "5.0.0"
+    id "com.diffplug.eclipse.apt" version "3.22.0"
+    id "com.github.johnrengelman.shadow" version "6.0.0"
     id "application"
 }
 
@@ -19,8 +19,8 @@ version "0.1"
 group "example.jpa"
 
 repositories {
-    jcenter()
     mavenCentral()
+    jcenter()
     maven { url "https://oss.jfrog.org/oss-snapshot-local" }
 }
 
@@ -74,18 +74,6 @@ dependencies {
 test.classpath += configurations.developmentOnly
 
 mainClassName = "example.Application"
-// use JUnit 5 platform
-test {
-    useJUnitPlatform()
-}
-tasks.withType(JavaCompile){
-    options.encoding = "UTF-8"
-    options.compilerArgs.add('-parameters')
-}
-
-shadowJar {
-    mergeServiceFiles()
-}
 
 hibernate {
     enhance {
@@ -96,5 +84,40 @@ hibernate {
     }
 }
 
-run.classpath += configurations.developmentOnly
-run.jvmArgs('-noverify', '-XX:TieredStopAtLevel=1', '-Dcom.sun.management.jmxremote')
+// use JUnit 5 platform
+test {
+    useJUnitPlatform()
+}
+
+java {
+    sourceCompatibility = JavaVersion.toVersion('1.8')
+    targetCompatibility = JavaVersion.toVersion('1.8')
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+    options.compilerArgs.addAll([
+        '-parameters',
+        // enables incremental compilation
+        '-Amicronaut.processing.incremental=true',
+        '-Amicronaut.processing.annotations=example.*',
+        "-Amicronaut.processing.group=$project.group",
+        "-Amicronaut.processing.module=$project.name",
+    ])
+}
+
+shadowJar {
+    mergeServiceFiles()
+}
+
+tasks.withType(JavaExec) {
+    classpath += configurations.developmentOnly
+    jvmArgs('-XX:TieredStopAtLevel=1', '-Dcom.sun.management.jmxremote')
+    if (gradle.startParameter.continuous) {
+        systemProperties(
+            'micronaut.io.watch.restart': 'true',
+            'micronaut.io.watch.enabled': 'true',
+            "micronaut.io.watch.paths": "src/main"
+        )
+    }
+}
