@@ -1,19 +1,8 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath "org.hibernate:hibernate-gradle-plugin:5.4.17.Final"
-    }
-}
-
 plugins {
     id "com.diffplug.eclipse.apt" version "3.22.0"
     id "com.github.johnrengelman.shadow" version "6.0.0"
     id "application"
 }
-
-apply plugin: 'org.hibernate.orm'
 
 version "0.1"
 group "com.jpa"
@@ -64,15 +53,6 @@ dependencies {
 test.classpath += configurations.developmentOnly
 
 mainClassName = "example.Application"
-
-hibernate {
-    enhance {
-        enableLazyInitialization= true
-        enableDirtyTracking = true
-        enableAssociationManagement = true
-        enableExtendedEnhancement = true
-    }
-}
 
 // use JUnit 5 platform
 test {
