@@ -12,3 +12,4 @@ out/
 .settings
 .classpath
 mn-data-jpa-graal*
+data-jpa-*
