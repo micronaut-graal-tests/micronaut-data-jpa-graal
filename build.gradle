@@ -59,4 +59,5 @@ java {
 
 nativeImage {
     imageName("data-jpa-mariadb")
+    args = ["-H:+StaticExecutableWithDynamicLibC"]
 }
