@@ -6,13 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import java.util.UUID;
 
 @Entity
 public class Pet {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private UUID id;
 
     private String name;
 
@@ -33,11 +34,11 @@ public class Pet {
         this.owner = owner;
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
