@@ -1,6 +1,6 @@
 package example.domain;
 
-import io.micronaut.core.annotation.Introspected;
+import io.micronaut.core.annotation.ReflectiveAccess;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -52,7 +52,7 @@ public class Pet {
         this.type = type;
     }
 
-    @Introspected
+    @ReflectiveAccess
     public enum PetType {
         DOG,
         CAT
