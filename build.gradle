@@ -102,3 +102,8 @@ tasks.withType(JavaExec) {
         )
     }
 }
+
+nativeImage {
+    imageName("data-jpa-h2")
+    args = ['-H:+StaticExecutableWithDynamicLibC']
+}
