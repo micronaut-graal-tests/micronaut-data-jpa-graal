@@ -1,3 +1,3 @@
 #!/bin/bash
-./gradlew nativeImage
-cp build/native-image/data-jpa-mariadb .
+./gradlew nativeCompile
+cp build/native/nativeCompile/data-jpa-mariadb .
