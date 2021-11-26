@@ -1,3 +1,3 @@
 #!/bin/bash
-./gradlew nativeImage
-cp build/native-image/data-jpa-sqlserver .
+./gradlew nativeCompile
+cp build/native/nativeCompile/data-jpa-sqlserver .
