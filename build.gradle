@@ -104,6 +104,7 @@ tasks.withType(JavaExec) {
     }
 }
 
+graalvmNative.toolchainDetection = false
 graalvmNative {
     binaries {
         main {
